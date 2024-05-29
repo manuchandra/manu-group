@@ -10,7 +10,7 @@ jobs:
   build:
      runs-on: ubuntu-latest
      env:
-      OIDC_AUDIENCE: 'grplocall'
+      OIDC_AUDIENCE: 'grplocal'
       OIDC_PROVIDER: 'manu-grplocal'
       PLATFORM_REPO: 'manu-npm-virtual'
      steps:
