@@ -25,7 +25,18 @@ jobs:
        - name: Ping Artifactory
          run: jf rt ping   
        - name: Get OIDC
-         run: curl -X GET https://hts2.jfrog.io/access/api/v1/oidc/jana-oidc/identity_mappings/janatest
+         run: |
+            RESPONSE=$(curl -s -o response.json -w "%{http_code}" -X POST -H "Content-type: application/json" \
+            ${{ env.JFROG_URL }}/access/api/v1/oidc/token -d \
+            '{
+            "grant_type": "urn:ietf:params:oauth:grant-type:token-exchange",
+            "subject_token_type":"urn:ietf:params:oauth:token-type:id_token",
+            "subject_token": "${{ env.ID_TOKEN }}",
+            "provider_name": "${{ env.OIDC_PROVIDER }}" }')        
+
+             echo "API Response:"
+
+              echo "$RESPONSE"
            
        - name: Get npm auth token
          run: jf rt curl /api/npm/auth > auth
