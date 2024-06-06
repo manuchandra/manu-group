@@ -39,7 +39,7 @@ jobs:
           echo "ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV  
        - name: display token
          run: |
-           curl -H "Authorization: Bearer $ACCESS_TOKEN" -X GET https://hts2.jfrog.io/access/api/v1/oidc/jana-oidc/identity_mappings/janatest
+           curl -H "Authorization: Bearer $ACCESS_TOKEN" -X GET https://hts2.jfrog.io/access/api/v1/oidc/manu-grpapi/identity_mappings/grpapi
         
            
        - name: Get npm auth token
