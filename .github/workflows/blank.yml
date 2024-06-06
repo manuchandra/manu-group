@@ -38,10 +38,6 @@ jobs:
            RESPONSE=$(curl -s -o response.json -w "%{http_code}" -X POST -H "Content-type: application/json" ${{ env.JF_URL }}/access/api/v1/oidc/token -d '{ "grant_type": "urn:ietf:params:oauth:grant-type:token-exchange","subject_token_type":"urn:ietf:params:oauth:token-type:id_token","subject_token": "${{ env.ID_TOKEN }}","provider_name": "${{ env.OIDC_PROVIDER }}"}')
            echo "API Response:"
            echo "$RESPONSE"
-       - name: display token
-         run: |
-           curl -H "Authorization: Bearer $ACCESS_TOKEN" -X GET https://hts2.jfrog.io/access/api/v1/oidc/manu-oidc-test/identity_mappings/oidctest
-        
            
        - name: Get npm auth token
          run: jf rt curl /api/npm/auth > auth
