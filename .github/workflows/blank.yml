@@ -10,8 +10,8 @@ jobs:
   build:
      runs-on: ubuntu-latest
      env:
-      OIDC_AUDIENCE: 'manu-grpapi'
-      OIDC_PROVIDER: 'grpapi'
+      OIDC_AUDIENCE: 'oidctest'
+      OIDC_PROVIDER: 'manu-oidc-test'
       PLATFORM_REPO: 'manu-npm-virtual'
      steps:
        - name: Setup JFrog cli / handshake via OIDC, with user
@@ -39,7 +39,7 @@ jobs:
           echo "ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV  
        - name: display token
          run: |
-           curl -H "Authorization: Bearer $ACCESS_TOKEN" -X GET https://hts2.jfrog.io/access/api/v1/oidc/manu-grpapi/identity_mappings/grpapi
+           curl -H "Authorization: Bearer $ACCESS_TOKEN" -X GET https://hts2.jfrog.io/access/api/v1/oidc/manu-oidc-test/identity_mappings/oidctest
         
            
        - name: Get npm auth token
