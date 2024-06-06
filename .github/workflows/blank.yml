@@ -23,7 +23,9 @@ jobs:
            oidc-audience: ${{ env.OIDC_AUDIENCE }}
 
        - name: Ping Artifactory
-         run: jf rt ping       
+         run: jf rt ping   
+       - name: Get OIDC
+         run: curl -X GET https://hts2.jfrog.io/access/api/v1/oidc/jana-oidc/identity_mappings/janatest
            
        - name: Get npm auth token
          run: jf rt curl /api/npm/auth > auth
