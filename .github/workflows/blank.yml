@@ -10,7 +10,7 @@ jobs:
   build:
      runs-on: ubuntu-latest
      env:
-      OIDC_AUDIENCE: 'manu-group'
+      OIDC_AUDIENCE: 'janagrpapi'
       OIDC_PROVIDER: 'github-group'
       PLATFORM_REPO: 'manu-npm-virtual'
      steps:
