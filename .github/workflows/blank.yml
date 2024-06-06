@@ -10,8 +10,8 @@ jobs:
   build:
      runs-on: ubuntu-latest
      env:
-      OIDC_AUDIENCE: 'grpapijana'
-      OIDC_PROVIDER: 'manu-grplocal'
+      OIDC_AUDIENCE: 'janatest'
+      OIDC_PROVIDER: 'jana-oidc'
       PLATFORM_REPO: 'manu-npm-virtual'
      steps:
        - name: Setup JFrog cli / handshake via OIDC, with user
